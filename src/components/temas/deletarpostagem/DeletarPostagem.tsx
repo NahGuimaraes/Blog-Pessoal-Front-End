@@ -4,6 +4,7 @@ import { AuthContext } from "../../../contexts/AuthContext"
 import Postagem from "../../../models/Postagem"
 import { buscar, deletar } from "../../../services/Service"
 import { RotatingLines } from "react-loader-spinner"
+import { ToastAlerta } from "../../../utils/ToastAlerta"
 
 function DeletarPostagem() {
 
@@ -60,7 +61,7 @@ function DeletarPostagem() {
             if (error.toString().includes('403')) {
                 handleLogout()
             }else {
-                alert('Erro ao deletar a postagem.')
+                ToastAlerta('Erro ao deletar a postagem.', "erro")
             }
         }
 
